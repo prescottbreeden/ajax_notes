@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Notes</title>
+    <script type="text/javascript" src="~/js/jquery-3.3.1.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <script type="text/javascript" src="~/js/site.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left">
+            <div class="container">
+                <h1>Add a Note <i class="fa fa-plus"></i></h1>
+                <input type="text" placeholder="Add New Note">
+            </div>
+            <div class="note">
+                <ul>
+                    <li>
+                        <a href="#" class="post_it_note">
+                            @for (var i = 0; i < ViewBag.notes.Count; i++)
+                            {
+                            <h2>@ViewBag.notes[i]["title"]</h2>
+                            }
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            @for (var i = 0; i < ViewBag.notes.Count; i++)
+            {
+                <div class="container slide">
+                    <div class="top">
+                        <h1><span><i class="far fa-trash-alt"></i></span>@ViewBag.notes[i]["title"] <i class="fa fa-plus"></i></h1>
+                    </div>
+                    <div class="bottom">
+                        <p>@ViewBag.notes[i]["description"]</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
+
